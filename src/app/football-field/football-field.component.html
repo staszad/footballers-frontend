@@ -1,3 +1,20 @@
-<p>
-football-field works!
-</p>
+<div *ngIf="defs + mids + strikers == 10" class="divPitch">
+  <div class="divPlayersRow">
+    <app-player-space *ngFor="let def of counter(strikers)"></app-player-space>
+  </div>
+  <div class="divPlayersRow">
+    <app-player-space *ngFor="let def of counter(mids)"></app-player-space>
+  </div>
+  <div class="divPlayersRow">
+    <app-player-space *ngFor="let def of counter(defs)"></app-player-space>
+  </div>
+  <app-player-space></app-player-space>
+</div>
+
+<div *ngIf="defs + mids + strikers > 10" class="divPitch blocked">
+  <p>Wybrałeś zbyt wielu graczy!</p>
+</div>
+
+<div *ngIf="defs + mids + strikers < 10" class="divPitch blocked">
+  <p>Wybrałeś zbyt mało graczy!</p>
+</div>

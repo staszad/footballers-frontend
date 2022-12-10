@@ -1,10 +1,20 @@
-<h1>Michniewicz Symulator v.711</h1>
-<h2>Jakim ustawieniem zagrasz?</h2>
-1 - <input type="number" class="numInput" [(ngModel)]="numOfDefs" /> -
-<input type="number" class="numInput" [(ngModel)]="numOfMids" /> -
-<input type="number" class="numInput" [(ngModel)]="numOfStrikers" />
-<p>{{ numOfDefs + numOfMids + numOfStrikers + 1}}</p>
-<div *ngIf="numOfDefs + numOfMids + numOfStrikers > 10">Too many</div>
-<div *ngIf="numOfDefs + numOfMids + numOfStrikers < 10">Too little</div>
-<div *ngIf="numOfDefs + numOfMids + numOfStrikers == 10">Good.</div>
-<app-fetch-players></app-fetch-players>
+<div class="pageWrapper">
+  <h1 class="text-3xl font-bold">Michniewicz Symulator v.711</h1>
+  <h2>Jakim ustawieniem zagrasz?</h2>
+  <div class="divFormationInput">
+    1 - <input type="number" class="numInput" [(ngModel)]="numOfDefs" /> -
+    <input type="number" class="numInput" [(ngModel)]="numOfMids" /> -
+    <input type="number" class="numInput" [(ngModel)]="numOfStrikers" />
+  </div>
+  <!-- <p>{{ numOfDefs + numOfMids + numOfStrikers + 1 }}</p>
+  <div *ngIf="numOfDefs + numOfMids + numOfStrikers > 10">Too many</div>
+  <div *ngIf="numOfDefs + numOfMids + numOfStrikers < 10">Too little</div>
+  <div *ngIf="numOfDefs + numOfMids + numOfStrikers == 10">Good.</div> -->
+
+  <app-football-field
+    [defs]="numOfDefs"
+    [mids]="numOfMids"
+    [strikers]="numOfStrikers"
+  ></app-football-field>
+  <!-- <app-football-field [defs]="4" [mids]="3" [strikers]="3"></app-football-field> -->
+</div>

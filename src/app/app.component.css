@@ -1,8 +1,18 @@
-p {
+* {
   font-family: Lato;
 }
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.divFormationInput {
+  font-size: 40px;
+}
 .numInput {
+  font-size: 40px;
   width: 30px;
+  border-radius: 5px;
 }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -12,6 +22,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }

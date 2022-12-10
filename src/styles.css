@@ -1,1 +1,5 @@
 /* Add application styles & imports to this file! */
+@font-face {
+  font-family: "Lato";
+  src: local("Lato"), url(src\assets\fonts\Lato-Regular.ttf) format("truetype");
+}
