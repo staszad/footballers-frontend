@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-football-field',
@@ -8,12 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FootballFieldComponent implements OnInit {
   constructor() {}
 
-  @Input() defs: number = 0;
-  @Input() mids: number = 0;
-  @Input() strikers: number = 0;
+  @Input() numOfDefs: number = 0;
+  @Input() numOfMids: number = 0;
+  @Input() numOfStrikers: number = 0;
+
+  players: Array<{ name: string; role: string; _id: string }> = [];
 
   counter(i: number) {
     return new Array(i);
+  }
+
+  uploadPlayers(arr: Array<{ name: string; role: string; _id: string }>) {
+    this.players = arr;
+    console.log('hej');
+    console.log(this.players);
   }
 
   ngOnInit() {}

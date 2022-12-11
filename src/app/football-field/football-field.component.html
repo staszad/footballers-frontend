@@ -1,20 +1,31 @@
-<div *ngIf="defs + mids + strikers == 10" class="divPitch">
+<app-fetch-players
+  (fetchedPlayersEv)="uploadPlayers($event)"
+></app-fetch-players>
+<div *ngIf="numOfDefs + numOfMids + numOfStrikers == 10" class="divPitch">
   <div class="divPlayersRow">
-    <app-player-space *ngFor="let def of counter(strikers)"></app-player-space>
+    <app-player-space
+      *ngFor="let def of counter(numOfStrikers)"
+    ></app-player-space>
   </div>
   <div class="divPlayersRow">
-    <app-player-space *ngFor="let def of counter(mids)"></app-player-space>
+    <app-player-space *ngFor="let def of counter(numOfMids)"></app-player-space>
   </div>
   <div class="divPlayersRow">
-    <app-player-space *ngFor="let def of counter(defs)"></app-player-space>
+    <app-player-space *ngFor="let def of counter(numOfDefs)"></app-player-space>
   </div>
   <app-player-space></app-player-space>
 </div>
 
-<div *ngIf="defs + mids + strikers > 10" class="divPitch blocked">
+<div
+  *ngIf="numOfDefs + numOfMids + numOfStrikers > 10"
+  class="divPitch blocked"
+>
   <p>Wybrałeś zbyt wielu graczy!</p>
 </div>
 
-<div *ngIf="defs + mids + strikers < 10" class="divPitch blocked">
+<div
+  *ngIf="numOfDefs + numOfMids + numOfStrikers < 10"
+  class="divPitch blocked"
+>
   <p>Wybrałeś zbyt mało graczy!</p>
 </div>
