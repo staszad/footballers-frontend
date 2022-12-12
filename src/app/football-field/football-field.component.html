@@ -1,19 +1,45 @@
 <app-fetch-players
   (fetchedPlayersEv)="uploadPlayers($event)"
 ></app-fetch-players>
+<h2 class="pitchH2">Jakich zawodników wybierzesz?</h2>
 <div *ngIf="numOfDefs + numOfMids + numOfStrikers == 10" class="divPitch">
   <div class="divPlayersRow">
     <app-player-space
+      [gkps]="gkps"
+      [defs]="defs"
+      [mids]="mids"
+      [strikers]="strikers"
       *ngFor="let def of counter(numOfStrikers)"
+      (changePlayerStatusEv)="changePlayerStatus($event)"
     ></app-player-space>
   </div>
   <div class="divPlayersRow">
-    <app-player-space *ngFor="let def of counter(numOfMids)"></app-player-space>
+    <app-player-space
+      [gkps]="gkps"
+      [defs]="defs"
+      [mids]="mids"
+      [strikers]="strikers"
+      *ngFor="let def of counter(numOfMids)"
+      (changePlayerStatusEv)="changePlayerStatus($event)"
+    ></app-player-space>
   </div>
   <div class="divPlayersRow">
-    <app-player-space *ngFor="let def of counter(numOfDefs)"></app-player-space>
+    <app-player-space
+      [gkps]="gkps"
+      [defs]="defs"
+      [mids]="mids"
+      [strikers]="strikers"
+      *ngFor="let def of counter(numOfDefs)"
+      (changePlayerStatusEv)="changePlayerStatus($event)"
+    ></app-player-space>
   </div>
-  <app-player-space></app-player-space>
+  <app-player-space
+    [gkps]="gkps"
+    [defs]="defs"
+    [mids]="mids"
+    [strikers]="strikers"
+    (changePlayerStatusEv)="changePlayerStatus($event)"
+  ></app-player-space>
 </div>
 
 <div

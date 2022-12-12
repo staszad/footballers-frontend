@@ -1,1 +1,124 @@
+<div class="greyBg">
+  <div class="choosingWrapper">
+    <div class="choosingContent">
+      <div class="header">
+        <button class="cancelButton" (click)="cancel()">X</button>
+        <span class="buttonsWrapper">
+          <!-- goalkeepers -->
+          <button
+            class="activatingButton btnAct"
+            *ngIf="gkActive == true"
+            (click)="changeGkps()"
+          >
+            Bramkarze
+          </button>
+          <button
+            class="activatingButton btnInact"
+            *ngIf="gkActive == false"
+            (click)="changeGkps()"
+          >
+            Bramkarze
+          </button>
 
+          <!-- defenders -->
+          <button
+            class="activatingButton btnAct"
+            *ngIf="defActive == true"
+            (click)="changeDefs()"
+          >
+            Obrońcy
+          </button>
+          <button
+            class="activatingButton btnInact"
+            *ngIf="defActive == false"
+            (click)="changeDefs()"
+          >
+            Obrońcy
+          </button>
+
+          <!-- midfielders -->
+          <button
+            class="activatingButton btnAct"
+            *ngIf="midActive == true"
+            (click)="changeMids()"
+          >
+            Pomocnicy
+          </button>
+          <button
+            class="activatingButton btnInact"
+            *ngIf="midActive == false"
+            (click)="changeMids()"
+          >
+            Pomocnicy
+          </button>
+
+          <!-- strikers -->
+          <button
+            class="activatingButton btnAct"
+            *ngIf="strActive == true"
+            (click)="changeStrs()"
+          >
+            Napastnicy
+          </button>
+          <button
+            class="activatingButton btnInact"
+            *ngIf="strActive == false"
+            (click)="changeStrs()"
+          >
+            Napastnicy
+          </button>
+        </span>
+      </div>
+
+      <div class="players">
+        <div *ngIf="gkActive == true">
+          <h2>Bramkarze:</h2>
+          <div class="playersRow">
+            <div *ngFor="let player of gkps">
+              <div class="player" (click)="proceedChosing(player)">
+                <img src="../../assets/img/player_selected.jpg" width="60px" />
+                <p>{{ player.name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="defActive == true">
+          <h2>Obrońcy:</h2>
+          <div class="playersRow">
+            <div *ngFor="let player of defs">
+              <div class="player" (click)="proceedChosing(player)">
+                <img src="../../assets/img/player_selected.jpg" width="60px" />
+                <p>{{ player.name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="midActive == true">
+          <h2>Pomocnicy:</h2>
+          <div class="playersRow">
+            <div *ngFor="let player of mids">
+              <div class="player" (click)="proceedChosing(player)">
+                <img src="../../assets/img/player_selected.jpg" width="60px" />
+                <p>{{ player.name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="strActive == true">
+          <h2>Napastnicy:</h2>
+          <div class="playersRow">
+            <div *ngFor="let player of strikers">
+              <div class="player" (click)="proceedChosing(player)">
+                <img src="../../assets/img/player_selected.jpg" width="60px" />
+                <p>{{ player.name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

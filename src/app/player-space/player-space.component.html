@@ -1,4 +1,23 @@
-<img *ngIf="selected; else empty" src="../../assets/img/player_selected.jpg" />
-<ng-template #empty
-  ><img src="../../assets/img/player_empty.jpg"
-/></ng-template>
+<div class="player">
+  <img
+    *ngIf="selected == true; else empty"
+    (click)="changeChosingAct(true)"
+    src="../../assets/img/player_selected.jpg"
+  />
+  <p *ngIf="selected == true">{{ selectedPlayer.name }}</p>
+  <ng-template #empty
+    ><img
+      src="../../assets/img/player_empty.jpg"
+      (click)="changeChosingAct(true)"
+  /></ng-template>
+</div>
+
+<app-choose-player
+  [gkps]="gkps"
+  [defs]="defs"
+  [mids]="mids"
+  [strikers]="strikers"
+  *ngIf="choosingActive"
+  (exit)="changeChosingAct($event)"
+  (choose)="getChosenPlayer($event)"
+></app-choose-player>
