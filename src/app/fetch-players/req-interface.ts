@@ -7,4 +7,5 @@ export interface Req {
       __v: number;
     }>;
   };
+  results: number;
 }

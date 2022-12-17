@@ -1,8 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
-import { Observable, throwError, of } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
 import { AppService } from '../app.service';
 
 @Component({
@@ -29,10 +26,6 @@ export class FetchPlayersComponent {
   constructor(private appService: AppService) {
     appService.getAll().subscribe((data) => {
       this.players = data.data.result;
-      console.log(this.players);
-      this.players.forEach((v) => {
-        this.players.push({ name: v.name, role: v.role, _id: v._id });
-      });
       this.sendFetchedPlayers(this.players);
     });
   }

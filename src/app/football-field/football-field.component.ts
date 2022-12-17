@@ -198,7 +198,7 @@ export class FootballFieldComponent implements OnInit {
     console.log(this.strikers);
   }
 
-  uploadPlayers(arr: Array<{ name: string; role: string; _id: string }>) {
+  uploadPlayers(arr: Array<{ _id: string; name: string; role: string }>) {
     arr.forEach((p) => {
       this.players.push({
         name: p.name,
@@ -207,8 +207,6 @@ export class FootballFieldComponent implements OnInit {
         chosen: false,
       });
     });
-    console.log('hej');
-    console.log(this.players);
 
     this.defs = arr.filter((player) => player.role == 'defender');
     this.mids = arr.filter((player) => player.role == 'midfielder');
@@ -223,8 +221,5 @@ export class FootballFieldComponent implements OnInit {
     this.upPlayers();
   }
 
-  ngOnInit() {
-    this.players = this.footballers;
-    this.upPlayers();
-  }
+  ngOnInit() {}
 }
